@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys, getopt
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from aruudy.poetry import armetre
+
+def help():
+    str = """aruudy -b <string>
+aruudy --bahr <string>
+    """
+    print(str)
+
+def main(argv):
+    input = ""
+    try:
+        opts, args = getopt.getopt(argv,"hb:",["bahr="])
+    except getopt.GetoptError:
+        help()
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            help()
+            sys.exit()
+        elif opt in ("-b", "--bahr"):
+            input = arg
+    input = unicode(input, 'utf-8')
+    r = armetre.arfilter(input)
+    r = armetre.fix_al(r)
+    r = armetre.fix_awy(r)
+    print("After filtering: " + r)
+    r = armetre.get_cv(r)
+    print("The scansion is: " + r)
+    r = armetre.get_metre(r)
+    print("Western scansion is: " + r)
+    r = armetre.get_metre_name(r)
+    print("The metre name: " + r)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

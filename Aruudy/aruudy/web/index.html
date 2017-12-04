@@ -1,0 +1,49 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Testing Arabic Aruud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {
+    font-size: 16px;
+  }
+  input[type=text] {
+    width: 100%;
+    padding:5px;
+    direction: rtl;
+  }
+  </style>
+</head>
+<body>
+  <input type = "text" id="in" /><br>
+  <input type = "button" onclick="send()" value="send" /><br>
+  <div id="res"></div>
+  <script>
+  function send(){
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://ararud.sourceforge.net/cgi-bin/test.py";
+
+    var params = "text=" + document.getElementById("in").value;
+
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(params);
+
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var res = xmlhttp.responseText;
+        var obj = JSON.parse(res);
+        var txt = "";
+        txt = txt + "<p>Fixed AL-: " + obj["fix-al"] + "</p>";
+        txt = txt + "<p>Fixed A W Y: " + obj["fix-awy"] + "</p>";
+        txt = txt + "<p>CV: " + obj["cv"] + "</p>";
+        txt = txt + "<p>Metre: " + obj["metre"] + "</p>";
+        txt = txt + "<p>Metre name: " + obj["metre-name"] + "</p>";
+        document.getElementById("res").innerHTML = txt;
+      }
+    };
+  }
+  </script>
+</body>
+</html>

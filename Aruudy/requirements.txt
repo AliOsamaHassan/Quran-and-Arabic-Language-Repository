@@ -1,0 +1,2 @@
+python-levenshtein
+lang-trans

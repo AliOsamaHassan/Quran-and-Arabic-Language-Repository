@@ -1,6 +1,6 @@
 # Quran And Arabic Language Repository [Awesome]
 
-This is an repository for projects & libraries that related to Quran & Arabic language
+This is an repository for gathering all resources that related to Quran & Arabic language
 
 
 ### Libraries

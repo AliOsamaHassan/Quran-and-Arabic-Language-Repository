@@ -25,4 +25,4 @@ This is an repository for projects & libraries that related to Quran & Arabic la
 1.  [Processing the Text of the Holy Quran: a Text Mining Study](https://thesai.org/Downloads/Volume6No2/Paper_37-Processing_the_Text_of_the_Holy_Quran.pdf)
 
 ### Contributing
-Have an awesome and usefull addition that you think it should be in this list ? Feel free to contribute by sending a pull request.
+Have an awesome and usefull addition that you think it should be in this list ? Feel free to contribute by sending a [pull request](https://github.com/AliOsamaHassan/Quran-and-Arabic-Language-Repository/pulls).
